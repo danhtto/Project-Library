@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alexandria&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+* {
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+body {
+    max-width: 100%;
+    background-color: #cbd5e1;
+}
+
+/* Top container styling */
+.top-container {
+    background-color: white;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+
+/* Header styling */
+.header {
+    position: relative;
+    font-family: 'Source Sans Pro', sans-serif;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex: 0;
+    align-items: center;
+    justify-items: center;
+    gap: 100px;
+    height: 15vh;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: 0px 3px 10px black;
+
+}
+
+.header h1 {
+    color: black;
+    font-weight: 700;
+    font-size: 48px;
+    letter-spacing: .05rem;
+}
+
+.header button {
+    font-size: 24px;
+    font-weight: 500;
+    font-family: 'Source Sans Pro', sans-serif;
+    cursor: pointer;
+    border-style: none;
+    background-color: #94a3b8;
+    color: white;
+    border-radius: 12px;
+    padding: 10px;
+    letter-spacing: .05rem;
+}
+.header button:hover {
+    background-color: white;
+    color: black;
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.header .signUp-logIn {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(2,1fr);
+    
+}
+
+/* Add button styling */
+
+.add {
+    background-color: #4B6BA8;
+    display: flex;
+    height: 10vh;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    justify-content: center;
+    box-shadow: 0px 3px 10px black;
+}
+.add button {
+    width: 100%;
+    color: white;
+    font-size: 50px;
+    border-style: none;
+    background-color: transparent;
+}
+.add button:hover {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: white;
+    color: green;
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
