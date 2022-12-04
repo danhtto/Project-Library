@@ -12,14 +12,35 @@
     <div class="top-container">
         <div class="header">
             <h1>library</h1>
-            <div class="signUp-logIn">
+            <!-- <div class="signUp-logIn">
                 <button>Sign Up</button>
                 <button>Log In</button>
-            </div>
+            </div> -->
         </div>
         <div class="add">
-            <button>+</button>
+            <button id="addBook">+</button>
         </div>
     </div>
+    <div class="bottom-container"></div>
+    <div class="form-container">
+        <form id="userInput">
+            <h2>Add a new book</h1>
+            <label for="title">
+                <input type="text" id="title" name="title" placeholder="Title" required>
+            </label>
+            <label for="author">
+                <input  type="text" id="author" name="author" placeholder="Author" required>
+            </label>
+            <label for="pages">
+                <input type="text" id="pages" name="pages" placeholder="Number of Pages" required>
+            </label>
+            <label for="read">
+                Have you read the book?
+                <input type="checkbox" id="read" name="read">
+            </label>
+            <button class='submit' type="submit" value="save">Submit</button>
+        </form>
+    </div>
+    <div class="form-background"></div>
 </body>
 </html>

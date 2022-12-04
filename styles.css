@@ -3,12 +3,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
 
 * {
-    color: white;
     margin: 0;
     padding: 0;
 }
 body {
+    padding: 10px;
     max-width: 100%;
+    height: 100vh;
     background-color: #cbd5e1;
 }
 
@@ -25,17 +26,15 @@ body {
     position: relative;
     font-family: 'Source Sans Pro', sans-serif;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    /* grid-template-columns: 1fr 1fr; */
     flex: 0;
     align-items: center;
     justify-items: center;
     gap: 100px;
     height: 15vh;
-    padding-left: 20px;
-    padding-right: 20px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    box-shadow: 0px 3px 10px black;
+    box-shadow: 0px 3px 6px rgb(43, 42, 42);
 
 }
 
@@ -49,7 +48,7 @@ body {
 .header button {
     font-size: 24px;
     font-weight: 500;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Alexandria', sans-serif;
     cursor: pointer;
     border-style: none;
     background-color: #94a3b8;
@@ -82,6 +81,7 @@ body {
     box-shadow: 0px 3px 10px black;
 }
 .add button {
+    cursor: pointer;
     width: 100%;
     color: white;
     font-size: 50px;
@@ -95,3 +95,70 @@ body {
     color: green;
     transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
+
+/* Book Card Display styling */
+.bottom-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+    grid-template-rows: 250px;
+    grid-auto-rows: 250px;
+    height: auto;
+    width: 100%;
+    gap: 15px;
+    padding-top: 10px;
+}
+
+#book {
+    display: grid;
+    align-items: center;
+    text-align: center;
+    font-family: 'Alexandria', sans-serif;
+    font-size: 1.5rem;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 2px 2px 2px gray;
+}
+
+/* form styling */
+
+
+#userInput {
+    font-family: 'Alexandria',sans-serif;
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    grid-template-rows: repeat(4,50px);
+    width: 200px;
+    height: 300px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+#userInput label {
+    height: 100%;
+}
+#userInput input {
+    font-family: 'Alexandria', sans-serif;
+    background-color: #c4d0e0;
+    border-style: none;
+    height: 2rem;
+    padding: 5px;
+    border-radius: 5px;
+}
+#userInput #read {
+    margin-top: 10px;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.submit {
+    font-family: 'Alexandria';
+    border-style: none;
+    border-radius: 8px;
+    background-color: rgb(236, 79, 79);
+}
+.submit:hover { 
+    cursor: pointer;
+    background-color: lightgreen;
+    transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
