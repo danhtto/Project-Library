@@ -2,7 +2,7 @@
 
 const container = document.querySelector('.bottom-container');
 const form = document.querySelector('#userInput');
-const formContainer = document.querySelector('.form-container');
+const formBackground = document.querySelector('.formBackground');
 const userInputTitle = document.querySelector('#title');
 const userInputAuthor = document.querySelector('#author');
 const userInputPages = document.querySelector('#pages');
@@ -59,12 +59,21 @@ function createBookCard () {
     read = document.createElement('button');
     remove = document.createElement('button');
     
-    title.innerText = userInputTitle.value;
+    title.innerText = `"${userInputTitle.value}"`;
     author.innerText = userInputAuthor.value;
     pages.innerText = userInputPages.value;
-    read.innerText = 'place Holder';
+
+    if(userInputRead.checked === true){
+        read.innerText = 'read';
+        read.style.backgroundColor = 'lightgreen';
+    } else {
+        read.innerText = 'not read yet';
+        read.style.backgroundColor = 'red';
+    }
+
     remove.innerText = 'remove';
     remove.setAttribute('id', 'remove');
+
 
     div.appendChild(title);
     div.appendChild(author);
@@ -125,6 +134,8 @@ function removeBook(title){
 /* Form Submission */
 
 addBook.addEventListener('click', function(e){
+    form.classList.add('active');
+    formBackground.classList.add('active');
 });
 
 submit.addEventListener('click', (e) => {
@@ -133,6 +144,8 @@ submit.addEventListener('click', (e) => {
     displayBook();
     console.log(myLibrary);
     resetForm();
+    form.classList.remove('active');
+    formBackground.classList.remove('active');
 });
 
 window.addEventListener('click', function(e){
@@ -140,3 +153,5 @@ window.addEventListener('click', function(e){
        removeBook(e.target.parentNode.children[0].innerText);
     }
 })
+
+console.log(Object.keys(window));
