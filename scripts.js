@@ -8,7 +8,11 @@ const userInputAuthor = document.querySelector('#author');
 const userInputPages = document.querySelector('#pages');
 const userInputRead = document.querySelector('#read');
 const overLay = document.querySelector('.form-background');
+const removeButton = document.querySelector('#remove');
+const addBook = document.querySelector('#addBook');
 const submit = document.querySelector('.submit');
+
+
 
 
 
@@ -30,41 +34,82 @@ class Book {
     }
 };
 
+function resetBookContainer(){
+    container.innerHTML = '';
+}
 
-function addBookToLibrary(newBook) {
+
+function addBookToLibrary() {
     const title = document.getElementById('title').value;
     const author = document.getElementById('author').value;
     const pages = document.getElementById('pages').value;
     const read = document.getElementById('read').checked;
-    newBook = new Book(`${author}`,`${title}`,`${pages}`,`${read}`);
-    myLibrary.push(newBook);
-    return console.log(myLibrary);
+    newBook = new Book(author,title,pages,read);
+    return myLibrary.push(newBook);
 };
 
 
+
+function createBookCard () {
+    const div = document.createElement('div');
+    div.setAttribute('id', 'book');
+    title = document.createElement('p');
+    author = document.createElement('p');
+    pages = document.createElement('p');
+    read = document.createElement('button');
+    remove = document.createElement('button');
+    
+    title.innerText = userInputTitle.value;
+    author.innerText = userInputAuthor.value;
+    pages.innerText = userInputPages.value;
+    read.innerText = 'place Holder';
+    remove.innerText = 'remove';
+    remove.setAttribute('id', 'remove');
+
+    div.appendChild(title);
+    div.appendChild(author);
+    div.appendChild(pages);
+    div.appendChild(read);
+    div.appendChild(remove);
+    container.appendChild(div);
+}
+
 function displayBook() {
-    for( let book in myLibrary) {
-        console.log(myLibrary[book]);
-        const div = document.createElement('div');
-        div.setAttribute('class', `card-${book}`);
-        div.setAttribute('id', 'book');
-        div.setAttribute('data',`${book}`)
+    for(let book of myLibrary){
+        return createBookCard();
+    }
+};
 
-        const author = document.createElement('p');
-        const title = document.createElement('p');
-        const pages = document.createElement('p');
-        const read = document.createElement('button');
-        const remove = document.createElement('button');
+function resetForm() {
+    return form.reset();
+}
 
-        author.innerText = myLibrary[book].author;
-        title.innerText = `"${myLibrary[book].title}"`;
-        pages.innerText = myLibrary[book].pages;
-        remove.innerText = 'Remove';
-        if(myLibrary[book].read === 'true') {
-            read.innerText = 'Read';
-        } else {
-            read.innerText = 'Not read yet';
+
+function removeBook(title){
+    let bookIndex = 0;
+    for( let book of myLibrary){
+        if(title === book.title){
+            bookIndex = myLibrary.indexOf(book);
+            myLibrary.splice(bookIndex,1);
+            return myLibrary;
         }
+    }
+    resetBookContainer();
+    for(book of myLibrary) {
+        const div = document.createElement('div');
+        div.setAttribute('id', 'book');
+        title = document.createElement('p');
+        author = document.createElement('p');
+        pages = document.createElement('p');
+        read = document.createElement('button');
+        remove = document.createElement('button');
+
+        title.innerText = book.title;
+        author.innerText = book.author;
+        pages.innerText = book.pages;
+        read.innerText = 'place Holder';
+        remove.innerText = 'remove';
+        remove.setAttribute('id', 'remove');
 
         div.appendChild(title);
         div.appendChild(author);
@@ -72,24 +117,26 @@ function displayBook() {
         div.appendChild(read);
         div.appendChild(remove);
         container.appendChild(div);
-
-
     }
-};
-
-
-const libary = displayBook();
+}
 
 /* UI */
 
 /* Form Submission */
 
-submit.addEventListener('click', function(e) {
+addBook.addEventListener('click', function(e){
+});
+
+submit.addEventListener('click', (e) => {
     e.preventDefault();
     addBookToLibrary();
     displayBook();
+    console.log(myLibrary);
+    resetForm();
 });
 
-
-
-
+window.addEventListener('click', function(e){
+    if(e.target.id === 'remove'){
+       removeBook(e.target.parentNode.children[0].innerText);
+    }
+})

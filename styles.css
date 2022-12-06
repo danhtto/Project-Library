@@ -117,6 +117,14 @@ body {
     border-radius: 8px;
     background-color: white;
     box-shadow: 2px 2px 2px gray;
+    padding: 15px
+}
+#book button {
+    border-style: none;
+    border-radius: 5px;
+    padding: 5px;
+    font-family: 'Alexandria', sans-serif;
+    font-size: 1rem;
 }
 
 /* form styling */
